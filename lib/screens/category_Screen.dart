@@ -8,7 +8,9 @@ class Category_Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Meal App"),
+          title: Text(
+              "Meal App"
+          ),
         ),
         body: GridView(
           padding: EdgeInsets.all(20),
