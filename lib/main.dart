@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meal_app/screens/category_Screen.dart';
+import 'package:meal_app/screens/category_meals_screen.dart';
+import 'package:meal_app/screens/category_screen.dart';
 
 void main (){
   runApp(MyApp());
@@ -13,11 +14,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Category_Screen(),
+      initialRoute: '/',
       theme: ThemeData(
         primarySwatch: Colors.pink,
         hintColor : Colors.amber,
         canvasColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          elevation: 0
+        ),
         textTheme: ThemeData.light().textTheme.copyWith(
           bodyText1: TextStyle(
             color: Colors.white,
@@ -34,6 +38,10 @@ class MyApp extends StatelessWidget {
          ),
 
       ),
+      routes: {
+        '/': (context) => Category_Screen(),
+        'category_meal_screen': (context) => Category_Meals_Screen()
+      },
     );
   }
 }
