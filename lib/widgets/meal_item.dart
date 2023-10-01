@@ -16,6 +16,40 @@ class Meal_Item extends StatelessWidget {
     required this.affordability,
   });
 
+  String get complexityText {
+    switch (complexity) {
+      case Complexity.Simple:
+        return 'simple';
+        break;
+      case Complexity.Challenging:
+        return 'challenging';
+        break;
+      case Complexity.Hard:
+        return 'hard';
+        break;
+      default:
+        return 'UnKnown';
+        break;
+    }
+  }
+
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return 'Afordability';
+        break;
+      case Affordability.Luxurious:
+        return 'Lxurious';
+        break;
+      case Affordability.Pricey:
+        return 'Pricey';
+        break;
+      default:
+        return 'UnKnown';
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -33,9 +67,79 @@ class Meal_Item extends StatelessWidget {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
-                  child: Image.network(imageUrl , fit: BoxFit.cover , width: double.infinity, height: 250,),
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 250,
+                  ),
                 ),
+                Positioned(
+                    right: 10,
+                    bottom: 20,
+                    child: Container(
+                      width: 250,
+                      color: Colors.black54,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.fade,
+                          softWrap: true,
+                        ),
+                      ),
+                    )),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.schedule),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        '$duration min',
+                        style: TextStyle(
+                            color: Colors.black54, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.work),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        '${complexityText}',
+                        style: TextStyle(
+                            color: Colors.black54, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.attach_money),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        '${affordabilityText}',
+                        style: TextStyle(
+                            color: Colors.black54, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
