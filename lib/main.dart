@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
         hintColor : Colors.amber,
-        canvasColor: Colors.white,
+        canvasColor: Colors.grey[100],
         appBarTheme: AppBarTheme(
           elevation: 0
         ),
@@ -28,10 +28,13 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
           ),
           bodyText2: TextStyle(
-            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'RobotoCondensed',
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
           headline1: TextStyle(
-             fontSize: 20,
+            fontSize: 20,
             fontFamily: 'RobotoCondensed',
             fontWeight: FontWeight.bold,
             color: Colors.white,

@@ -57,7 +57,6 @@ class Meal_Item extends StatelessWidget {
       context,
       'meal_detail',
       arguments: id,
-
     );
   }
 
@@ -96,8 +95,7 @@ class Meal_Item extends StatelessWidget {
                             horizontal: 10, vertical: 5),
                         child: Text(
                           title,
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold , color: Colors.white),
                           overflow: TextOverflow.fade,
                           softWrap: true,
                         ),

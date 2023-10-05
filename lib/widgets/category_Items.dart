@@ -17,7 +17,7 @@ class Category_Items extends StatelessWidget {
       'category_meal_screen',
       arguments: {
       'id': id,
-       'title': title,
+      'title': title,
       }
     );
   }
