@@ -4,8 +4,7 @@ import '../widgets/meal_detail_build_contaner.dart';
 import '../dummy_data.dart';
 
 class MealDetail extends StatelessWidget {
-  const MealDetail({Key? key}) : super(key: key);
-
+  static const routName = 'MealDetail';
   @override
   Widget build(BuildContext context) {
     final mealId = ModalRoute.of(context)!.settings.arguments as String;

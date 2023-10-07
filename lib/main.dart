@@ -6,6 +6,7 @@ import 'package:meal_app/cubit/states.dart';
 import 'package:meal_app/screens/category_meals_screen.dart';
 import 'package:meal_app/screens/category_screen.dart';
 import 'package:meal_app/screens/favorite_screen.dart';
+import 'package:meal_app/screens/filter_screen.dart';
 import 'package:meal_app/screens/meal_detail_screen.dart';
 import 'package:meal_app/screens/tabs_screen.dart';
 
@@ -51,10 +52,11 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => TabsScreen(),
-          'category_screen': (context) => Category_Screen(),
-          'favorite_screen': (context) => FavoriteScreen(),
-          'category_meal_screen': (context) => Category_Meals_Screen(),
-          'meal_detail_screen' : (context) => MealDetail(),
+          CategoryScreen.routName: (context) => CategoryScreen(),
+          FavoriteScreen.routName: (context) => FavoriteScreen(),
+          CategoryMealsScreen.routName: (context) => CategoryMealsScreen(),
+          MealDetail.routName : (context) => MealDetail(),
+          FiltersScreen.routName : (context) => FiltersScreen(),
         },
       ),
       

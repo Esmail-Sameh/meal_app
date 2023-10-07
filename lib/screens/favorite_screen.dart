@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteScreen extends StatelessWidget {
-
+  static const routName = 'Favorite_Screen';
   @override
   Widget build(BuildContext context) {
     return Center(

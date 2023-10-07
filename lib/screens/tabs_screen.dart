@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_app/cubit/cubit.dart';
 import 'package:meal_app/cubit/states.dart';
+import 'package:meal_app/widgets/drawer.dart';
 
 class TabsScreen extends StatelessWidget {
   const TabsScreen({Key? key}) : super(key: key);
@@ -20,7 +21,6 @@ class TabsScreen extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             onTap:(value) {
              cubit.change_Button_NavBar_State(value);
-             print(cubit.currentIndex);
             } ,
             currentIndex: cubit.currentIndex,
             items: [
@@ -35,6 +35,7 @@ class TabsScreen extends StatelessWidget {
 
             ],
           ),
+          drawer: DrawerBuilder(),
         );
       },
     );

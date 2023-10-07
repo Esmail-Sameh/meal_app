@@ -11,7 +11,7 @@ class MealCubit extends Cubit<MealStates>{
 
   late int currentIndex = 0;
   List<Widget> screens = [
-    Category_Screen(),
+    CategoryScreen(),
     FavoriteScreen(),
   ];
   List<String> titles = [
