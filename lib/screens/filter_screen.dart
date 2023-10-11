@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/widgets/drawer.dart';
 
 class FiltersScreen extends StatelessWidget {
   static const routName = 'FiltersScreen';
@@ -26,6 +27,7 @@ class FiltersScreen extends StatelessWidget {
           ),
         ),
       ),
+      drawer: DrawerBuilder(),
     );
   }
 }

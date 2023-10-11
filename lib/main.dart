@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_app/cubit/cubit.dart';
-import 'package:meal_app/cubit/states.dart';
+import 'package:meal_app/cubit/observer.dart';
 import 'package:meal_app/screens/category_meals_screen.dart';
 import 'package:meal_app/screens/category_screen.dart';
 import 'package:meal_app/screens/favorite_screen.dart';
@@ -11,6 +10,7 @@ import 'package:meal_app/screens/meal_detail_screen.dart';
 import 'package:meal_app/screens/tabs_screen.dart';
 
 void main (){
+  Bloc.observer = AppBlocObserver();
   runApp(MyApp());
 }
 
@@ -29,7 +29,12 @@ class MyApp extends StatelessWidget {
           hintColor : Colors.amber,
           canvasColor: Color.fromRGBO(255, 254, 229, 1),
           appBarTheme: AppBarTheme(
-              elevation: 0
+              elevation: 0,
+            titleTextStyle: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Raleway',
+            ),
           ),
           textTheme: ThemeData.light().textTheme.copyWith(
             bodyText1: TextStyle(

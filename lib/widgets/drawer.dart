@@ -59,7 +59,7 @@ class DrawerBuilder extends StatelessWidget {
               title: 'Filters',
               icon: Icons.settings,
               tapHandler: (){
-                Navigator.of(context).pushNamed(FiltersScreen.routName);
+                Navigator.of(context).pushReplacementNamed(FiltersScreen.routName);
               },
             ),
           ],
