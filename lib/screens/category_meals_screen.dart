@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/cubit/cubit.dart';
 import 'package:meal_app/models/meal.dart';
 import 'package:meal_app/widgets/meal_item.dart';
 import '../dummy_data.dart';
@@ -19,7 +20,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     final routeArg = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final category_Id = routeArg['id'];
     categoryTitle = routeArg['title'];
-    displayMeals = DUMMY_MEALS.where((meal) {
+    displayMeals = MealCubit.get(context).availableMeals.where((meal) {
       return meal.catories.contains(category_Id);
     }).toList();
     super.didChangeDependencies();

@@ -11,3 +11,5 @@ class Meal_Change_Vegan_Value extends MealStates{}
 class Meal_Change_Vegetarian_Value extends MealStates{}
 
 class Meal_Change_LactoseFree_Value extends MealStates{}
+
+class Meal_Save_Filters_Value extends MealStates{}

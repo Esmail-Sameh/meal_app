@@ -16,18 +16,25 @@ class FiltersScreen extends StatelessWidget {
       SwitchListTile(
         value: value,
         onChanged: updateValue,
-        title: Text(title , style: TextStyle(fontSize: 22 , fontWeight: FontWeight.bold),),
-        subtitle: Text(subtitle , style: TextStyle(fontSize: 15 , ),),
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(
+            fontSize: 15,
+          ),
+        ),
       );
 
   @override
   Widget build(BuildContext context) {
     var cubit = MealCubit.get(context);
-
-    return BlocConsumer<MealCubit , MealStates>(
+    return BlocConsumer<MealCubit, MealStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        return  Scaffold(
+        return Scaffold(
           appBar: AppBar(
             centerTitle: true,
             title: Text(
@@ -37,6 +44,14 @@ class FiltersScreen extends StatelessWidget {
                 fontFamily: 'Raleway',
               ),
             ),
+            actions: [
+              IconButton(
+                  icon: Icon(Icons.save),
+                  onPressed: () {
+                    cubit.saveFilters();
+                    print('save');
+                  }),
+            ],
           ),
           body: Padding(
             padding: const EdgeInsets.all(0.0),
@@ -68,36 +83,29 @@ class FiltersScreen extends StatelessWidget {
                     title: 'Lactose-Free',
                     subtitle: 'Only include lactose-Free meals',
                     value: cubit.lactoseFree,
-                    updateValue: (value){
+                    updateValue: (value) {
                       cubit.changeLactoseFree(value);
-                    }
-                ),
+                    }),
                 buildSwitchListTile(
                     title: 'Vegetarian',
                     subtitle: 'Only include vegetarian meals',
                     value: cubit.vegetarian,
-                    updateValue: (value){
+                    updateValue: (value) {
                       cubit.changeVegetarian(value);
-                    }
-                ),
+                    }),
                 buildSwitchListTile(
                     title: 'Vegan',
                     subtitle: 'Only include vegan meals',
                     value: cubit.vegan,
-                    updateValue: (value){
+                    updateValue: (value) {
                       cubit.changeVegan(value);
-                    }
-                ),
-
+                    }),
               ],
             ),
           ),
           drawer: DrawerBuilder(),
         );
       },
-
     );
   }
 }
-
-

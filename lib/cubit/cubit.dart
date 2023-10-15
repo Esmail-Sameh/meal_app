@@ -1,7 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_app/screens/favorite_screen.dart';
 import '../cubit/states.dart';
+import '../dummy_data.dart';
+import '../models/meal.dart';
 import '../screens/category_screen.dart';
 
 class MealCubit extends Cubit<MealStates>{
@@ -18,7 +22,7 @@ class MealCubit extends Cubit<MealStates>{
     'Category',
     'Favorite',
   ];
-
+  List<Meal> availableMeals = DUMMY_MEALS;
   bool glutenFree = false;
   bool vegan = false;
   bool vegetarian = false;
@@ -45,5 +49,25 @@ class MealCubit extends Cubit<MealStates>{
     currentIndex = value ;
     emit(Meal_Change_Button_NavBar_State());
   }
+
+  void saveFilters(){
+    availableMeals = DUMMY_MEALS.where((meal){
+      if(glutenFree && !meal.isGlutenFree){
+        return false;
+      }
+      if(lactoseFree && !meal.isLactoseFree){
+        return false;
+      }
+      if(vegan && !meal.isVegan){
+        return false;
+      }
+      if(vegetarian && !meal.isVegetarian){
+        return false;
+      }
+      return true;
+    }).toList();
+    emit(Meal_Save_Filters_Value());
+  }
+
 
 }
