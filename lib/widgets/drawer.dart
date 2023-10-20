@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meal_app/screens/filter_screen.dart';
+import '../screens/filter_screen.dart';
 
 class DrawerBuilder extends StatelessWidget {
   const DrawerBuilder({Key? key}) : super(key: key);
@@ -51,15 +51,16 @@ class DrawerBuilder extends StatelessWidget {
             buildListTile(
               title: 'Meal',
               icon: Icons.restaurant,
-              tapHandler:(){
+              tapHandler: () {
                 Navigator.of(context).pushReplacementNamed('/');
               },
             ),
             buildListTile(
               title: 'Filters',
               icon: Icons.settings,
-              tapHandler: (){
-                Navigator.of(context).pushReplacementNamed(FiltersScreen.routName);
+              tapHandler: () {
+                Navigator.of(context)
+                    .pushReplacementNamed(FiltersScreen.routName);
               },
             ),
           ],

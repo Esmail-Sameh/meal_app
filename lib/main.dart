@@ -8,15 +8,14 @@ import 'package:meal_app/screens/favorite_screen.dart';
 import 'package:meal_app/screens/filter_screen.dart';
 import 'package:meal_app/screens/meal_detail_screen.dart';
 import 'package:meal_app/screens/tabs_screen.dart';
+import 'package:meal_app/styles/themes.dart';
 
-void main (){
+void main() {
   Bloc.observer = AppBlocObserver();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -25,47 +24,16 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
-        theme: ThemeData(
-          primarySwatch: Colors.pink,
-          hintColor : Colors.amber,
-          canvasColor: Color.fromRGBO(255, 254, 229, 1),
-          appBarTheme: AppBarTheme(
-              elevation: 0,
-            titleTextStyle: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Raleway',
-            ),
-          ),
-          textTheme: ThemeData.light().textTheme.copyWith(
-            bodyText1: TextStyle(
-              color: Colors.white,
-            ),
-            bodyText2: TextStyle(
-              fontSize: 20,
-              fontFamily: 'RobotoCondensed',
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            headline1: TextStyle(
-              fontSize: 20,
-              fontFamily: 'RobotoCondensed',
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-
-        ),
+        theme: themes.lightTheme,
         routes: {
           '/': (context) => TabsScreen(),
           CategoryScreen.routName: (context) => CategoryScreen(),
           FavoriteScreen.routName: (context) => FavoriteScreen(),
           CategoryMealsScreen.routName: (context) => CategoryMealsScreen(),
-          MealDetail.routName : (context) => MealDetail(),
-          FiltersScreen.routName : (context) => FiltersScreen(),
+          MealDetail.routName: (context) => MealDetail(),
+          FiltersScreen.routName: (context) => FiltersScreen(),
         },
       ),
-
     );
   }
 }

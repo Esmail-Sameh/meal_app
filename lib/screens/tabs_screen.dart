@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meal_app/cubit/cubit.dart';
-import 'package:meal_app/cubit/states.dart';
-import 'package:meal_app/widgets/drawer.dart';
+import '../cubit/cubit.dart';
+import '../cubit/states.dart';
+import '../widgets/drawer.dart';
 
 class TabsScreen extends StatelessWidget {
   const TabsScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class TabsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = MealCubit.get(context);
-    return BlocConsumer<MealCubit , MealStates>(
+    return BlocConsumer<MealCubit, MealStates>(
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
@@ -19,9 +19,9 @@ class TabsScreen extends StatelessWidget {
           ),
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
-            onTap:(value) {
-             cubit.change_Button_NavBar_State(value);
-            } ,
+            onTap: (value) {
+              cubit.change_Button_NavBar_State(value);
+            },
             currentIndex: cubit.currentIndex,
             items: [
               BottomNavigationBarItem(
@@ -32,7 +32,6 @@ class TabsScreen extends StatelessWidget {
                 icon: Icon(Icons.favorite),
                 label: 'Favorite',
               ),
-
             ],
           ),
           drawer: DrawerBuilder(),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/screens/meal_detail_screen.dart';
+import '../screens/meal_detail_screen.dart';
 import '../models/meal.dart';
 
 class Meal_Item extends StatelessWidget {
@@ -9,7 +9,6 @@ class Meal_Item extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-  final Function removeItem;
 
   const Meal_Item({
     required this.id,
@@ -18,7 +17,6 @@ class Meal_Item extends StatelessWidget {
     required this.duration,
     required this.complexity,
     required this.affordability,
-    required this.removeItem,
   });
 
   String get complexityText {
@@ -60,10 +58,8 @@ class Meal_Item extends StatelessWidget {
       context,
       MealDetail.routName,
       arguments: id,
-    ).then((result){
-      if(result != null){
-        removeItem(result);
-      }
+    ).then((result) {
+      //  if(result != null){removeItem(result);}
     });
   }
 
@@ -72,7 +68,7 @@ class Meal_Item extends StatelessWidget {
     return InkWell(
       onTap: () => selectedMealItem(context),
       child: Card(
-        elevation: 4,
+        elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         margin: EdgeInsets.all(10),
         child: Column(
@@ -102,7 +98,10 @@ class Meal_Item extends StatelessWidget {
                             horizontal: 10, vertical: 5),
                         child: Text(
                           title,
-                          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold , color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                           overflow: TextOverflow.fade,
                           softWrap: true,
                         ),

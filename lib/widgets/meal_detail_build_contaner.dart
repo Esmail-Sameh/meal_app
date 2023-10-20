@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-
-  Widget mealBuildContaner({
-    required BuildContext context,
-    required Widget child,
-  }) => Container(
-      margin:const EdgeInsets.symmetric(vertical: 10),
+Widget mealBuildContaner({
+  required BuildContext context,
+  required Widget child,
+}) =>
+    Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
       padding: EdgeInsets.symmetric(vertical: 5),
       width: 300,
       height: 200,
@@ -17,15 +17,15 @@ import 'package:flutter/material.dart';
       child: child,
     );
 
-  Widget mealBuildCSectionTitle({required String text})=>Container(
-    margin:const EdgeInsets.symmetric(vertical: 10),
-    child: Text(
-      text,
-      style: TextStyle(
-        fontSize: 25,
-        fontFamily: 'RobotoCondensed',
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
+Widget mealBuildCSectionTitle({required String text}) => Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 25,
+          fontFamily: 'RobotoCondensed',
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
       ),
-    ),
-  );
+    );
